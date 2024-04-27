@@ -29,3 +29,14 @@ tasks.named('test') {
 tasks.named('processResources') {
 	dependsOn(":frontend:npm_run_build")
 }
+
+openApi {
+	outputDir.set(layout.projectDirectory.dir("src/main/resources/openapi"))
+	customBootRun {
+		workingDir = File.createTempDir()
+	}
+}
+
+tasks.named('generateOpenApiDocs') {
+	outputs.upToDateWhen { false }
+}
