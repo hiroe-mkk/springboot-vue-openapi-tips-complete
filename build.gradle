@@ -40,3 +40,7 @@ openApi {
 tasks.named('generateOpenApiDocs') {
 	outputs.upToDateWhen { false }
 }
+
+tasks.register("generateOpenApiDocsAndApiClient") {
+	dependsOn generateOpenApiDocs, project(":frontend").tasks.named("npm_run_generate-api-client")
+}

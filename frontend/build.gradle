@@ -7,3 +7,7 @@ node {
     download.set(true)
     version.set("21.6.1")
 }
+
+tasks.named("npm_run_generate-api-client") {
+    mustRunAfter(rootProject.tasks.named("generateOpenApiDocs"))
+}
