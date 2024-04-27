@@ -1,17 +1,14 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import axios from 'axios';
+import { HelloControllerApi } from '@/api';
 
 const message = ref<string>('');
 
 onMounted(async () => {
-  try {
-    const response = await axios.get('/api/hello')
-    message.value = response.data
-  } catch (error) {
-    console.error('Error:', error)
-  }
-})
+  const api = new HelloControllerApi();
+  const response = await api.getMessage();
+  message.value = response.data;
+});
 </script>
 
 <template>
