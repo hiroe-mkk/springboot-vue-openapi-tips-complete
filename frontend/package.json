@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "type-check": "vue-tsc --build --force"
+    "type-check": "vue-tsc --build --force",
+    "generate-api-client": "openapi-generator-cli generate -g typescript-axios -i ../src/main/resources/openapi/openapi.json -o ./src/api"
   },
   "dependencies": {
     "axios": "^1.6.8",
@@ -16,6 +17,7 @@
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",
+    "@openapitools/openapi-generator-cli": "^2.13.2",
     "@types/node": "^20.12.5",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vue/tsconfig": "^0.5.1",

@@ -35,7 +35,7 @@ export const HelloControllerApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMsg: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getMessage: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/hello`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -74,10 +74,10 @@ export const HelloControllerApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMsg(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getMsg(options);
+        async getMessage(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMessage(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['HelloControllerApi.getMsg']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['HelloControllerApi.getMessage']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -95,8 +95,8 @@ export const HelloControllerApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMsg(options?: any): AxiosPromise<string> {
-            return localVarFp.getMsg(options).then((request) => request(axios, basePath));
+        getMessage(options?: any): AxiosPromise<string> {
+            return localVarFp.getMessage(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -114,8 +114,8 @@ export class HelloControllerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HelloControllerApi
      */
-    public getMsg(options?: RawAxiosRequestConfig) {
-        return HelloControllerApiFp(this.configuration).getMsg(options).then((request) => request(this.axios, this.basePath));
+    public getMessage(options?: RawAxiosRequestConfig) {
+        return HelloControllerApiFp(this.configuration).getMessage(options).then((request) => request(this.axios, this.basePath));
     }
 }
 
